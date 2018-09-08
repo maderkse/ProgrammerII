@@ -1,0 +1,5 @@
+Manifest-Version: 1.0
+Created-By: 1.8.0_172 (Oracle Corporation)
+Class-Path: libs/sqlite-jdbc-3.23.1.jar
+Main-Class: com.maderkse.H15JDBC.Main
+
