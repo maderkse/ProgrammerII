@@ -1,33 +1,38 @@
 package com.maderkse.H15JDBC;
 
-import java.sql.Connection;
-import java.sql.Statement;
 import java.sql.DriverManager;
+import java.sql.Connection;
 import java.sql.SQLException;
-import com.maderkse.F1.Drivers;
-class Main {
-	public static void main(String[] args) {
-		System.out.println("Hi");
-		Drivers drivers = null;
-		Connection conn = null;
+import java.sql.Statement;
+import java.sql.DatabaseMetaData;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
 
-		System.out.println("dbUrl: " + System.getProperty("dbUrl"));
+public class Main {
+   public static void main(String[] args) throws SQLException {
+      System.out.println("Hi, A here!");
 
-		String dbUrl = System.getProperty("dbUrl");
-
-		if (dbUrl == null) {
-			System.out.println("Missing -DdbUrl option.");
-			System.exit(1);
-		}
-
-		try{
-			conn = DriverManager.getConnection(dbUrl);
-
-		} catch(SQLException e) {
-			System.out.println(e.getMessage());
-		}
-
-		drivers  = new Drivers(conn);
-
-	}
+      Connection con = DriverManager.getConnection("jdbc:sqlite://home/maderkse/db/F1.db");
+      DatabaseMetaData md = con.getMetaData();
+      ResultSet rs = md.getTables(null,null,null,null);
+      int i=0;
+      while (rs.next()) {
+         i++;
+         String table_name = rs.getString("TABLE_NAME");
+         System.out.println(table_name);
+         String query = "select * from " + table_name;
+         Statement s = con.createStatement();
+         ResultSet rsq = s.executeQuery(query);
+         ResultSetMetaData rsqm = rsq.getMetaData();
+         int cc = rsqm.getColumnCount();
+         System.out.println("Aantal kolommen: " + cc);
+         while(rsq.next()) {
+            for (int c=1;c<=cc;c++) {
+               System.out.print(rsq.getString(c));
+               if (c!=cc) System.out.print("|");
+               else System.out.print("\n");
+            }
+         }
+      }
+   }
 }
