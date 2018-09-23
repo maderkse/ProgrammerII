@@ -1,0 +1,11 @@
+1.   Given:
+ String url = "jdbc:mysql://SolDBServer/soldb";
+ String user = "sysEntry";
+ String pwd = "fo0B3@r";
+ // INSERT CODE HERE Connection conn = DriverManager.getConnection(url, user, pwd);
+ Assuming "org.gjt.mm.mysql.Driver" is a legitimate class, which line, when inserted at // INSERT CODE HERE, will correctly load this JDBC 3.0 driver?
+ A.DriverManager.registerDriver("org.gjt.mm.mysql.Driver");
+  B.Class.forName("org.gjt.mm.mysql.Driver");
+  C.DatabaseMetaData.loadDriver("org.gjt.mm.mysql.Driver");
+  D.Driver.connect("org.gjt.mm.mysql.Driver");
+  E.DriverManager.getDriver("org.gjt.mm.mysql.Driver");
