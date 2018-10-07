@@ -1,0 +1,1 @@
+Use streams to read from and write to files by using classes in the java.io package, including BufferedReader, BufferedWriter, File, FileReader, FileWriter, DataInputStream, DataOutputStream, ObjectOutputStream, ObjectInputStream and PrintWriter.

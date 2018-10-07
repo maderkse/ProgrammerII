@@ -1,0 +1,5 @@
+Manifest-Version: 1.0
+Created-By: 1.8.0_172 (Oracle Corporation)
+Class-Path: .:/src/main/java/com/maderkse/Sandbox/
+Main-Class: com.maderkse.Sandbox.Main
+
