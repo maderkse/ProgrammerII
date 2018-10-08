@@ -37,6 +37,9 @@ public class Main {
 
       zandbak.playWithNumbers();
       zandbak.playWithResourceBundles();
+
+      Template template = new Template();
+      template.main(new String[] {});
    }
 
    public void playWithResourceBundles() {
